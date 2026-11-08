@@ -58,4 +58,6 @@ VALUES
 ('Chicken Meal', 'Meals', 129, 50),
 ('Burger', 'Meals', 89, 45),
 ('Fries', 'Sides', 55, 60),
-('Iced Tea', 'Drinks', 35, 70);
+('Iced Tea', 'Drinks', 35, 70),
+('Spaghetti Meal', 'Meals', 150, 50),
+('Vegetable Salad', 'Meals', 125, 50);
