@@ -1,0 +1,91 @@
+FOODCHAIN POS - HOW TO SET IT UP
+================================
+
+What you need: XAMPP (free). If the PC already has XAMPP, skip Step 1.
+
+Login after setup:
+    Username: admin
+    Password: ChangeMe123!
+
+
+STEP 1 - Install XAMPP (only if the PC doesn't have it)
+-------------------------------------------------------
+1. Download it from https://www.apachefriends.org
+2. Run the installer and keep clicking Next.
+   KEEP the default install folder: C:\xampp
+
+
+STEP 2 - Start Apache and MySQL
+-------------------------------
+1. Open "XAMPP Control Panel" (Start menu, or C:\xampp\xampp-control.exe).
+2. Click START next to Apache.
+3. Click START next to MySQL.
+4. Wait until both names turn GREEN.
+   (Leave the Control Panel open while you use the POS.)
+
+
+STEP 3 - Install the POS (pick ONE option)
+------------------------------------------
+
+OPTION A - Easiest (one double-click)
+  1. Right-click the zip > Extract All.
+  2. Open the extracted folder and double-click INSTALL.bat
+  3. It copies the files to htdocs, creates the database, and opens setup.php.
+  4. Go to STEP 4.
+
+OPTION B - Manual (if you'd rather do it yourself)
+  1. Copy the "foodchain_pos" folder into C:\xampp\htdocs
+     It should end up as:  C:\xampp\htdocs\foodchain_pos\config.php  (etc.)
+     (htdocs is XAMPP's "website" folder. Anything inside it
+      can be opened at http://localhost/...)
+  2. Open http://localhost/phpmyadmin in your browser.
+  3. Click the "Import" tab at the top.
+  4. Click "Choose File", pick C:\xampp\htdocs\foodchain_pos\database.sql
+  5. Scroll down and click "Import" (or "Go").
+  6. Open http://localhost/foodchain_pos/setup.php
+
+
+STEP 4 - Finish (these are the 3 steps from the original instructions)
+----------------------------------------------------------------------
+1. RUN SETUP.PHP
+   http://localhost/foodchain_pos/setup.php
+   It should say "Administrator account created successfully."
+2. DELETE SETUP.PHP
+   Delete the file C:\xampp\htdocs\foodchain_pos\setup.php
+3. RUN POS.PHP
+   http://localhost/foodchain_pos/pos.php
+   Log in with admin / ChangeMe123!
+
+
+PROBLEMS?
+---------
+- "This site can't be reached" / page won't load
+    Apache isn't running. Click START next to Apache in the XAMPP Control Panel.
+
+- Page shows an error about "SQLSTATE" or "Connection refused"
+    MySQL isn't running. Click START next to MySQL.
+
+- "Unknown database 'foodchain_pos'"
+    The database wasn't imported. Do Option B, steps 2-5.
+
+- Apache or MySQL turns red / won't start
+    Another program is using the port (often Skype, IIS, or another MySQL).
+    Close that program, or restart the PC, then click START again.
+
+- "An administrator account already exists."
+    Setup was already done. Just delete setup.php and log in.
+
+- XAMPP is on a different drive (e.g. D:\xampp)
+    INSTALL.bat finds it automatically. For the manual steps, just use
+    D:\xampp\htdocs instead of C:\xampp\htdocs.
+
+- "Access denied for user 'root'"
+    Someone set a MySQL password on this PC. The POS expects the
+    XAMPP default (user root, no password). Ask the lab admin, or use
+    a PC with a fresh XAMPP.
+
+- Everything disappeared after restarting the lab PC
+    Some lab PCs reset themselves on reboot. Just do Steps 2-4 again.
+
+- Importing database.sql says "table already exists"
+    The database is already set up. Skip the import.
